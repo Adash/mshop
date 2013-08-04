@@ -1,0 +1,94 @@
+{% extends 'MainBundle:Default:index.html.twig' %}
+
+{% block product1 %} 
+    <div class="row">
+    <div class="col-lg-4">
+        <h2>{{ mala1.name }}</h2>
+        <p>
+          <ul>
+          <li>
+            <p>Main material: {{ mala1.mainMaterial }}</p>
+          </li>
+          <li>
+            <p>Guru Bead Material: {{ mala1.guruBeadMaterial }}</p>
+          </li>
+          <li>
+            <p>String Colour: {{ mala1.string }}</p>
+          </li>
+          <li>
+            <p>Number of beads: {{ mala1.length }}</p>
+          </li>
+          <li>
+            <p>Type of knot: {{ mala1.knot }}</p>
+          </li>
+          <li>
+            <p>Description: {{ mala1.description }}</p>
+          </li>
+
+          </ul>  
+        </p>
+        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div>
+{% endblock %}
+
+{% block product2 %} 
+    <div class="row">
+    <div class="col-lg-4">
+        <h2>{{ mala2.name }}</h2>
+        <p>
+          <ul>
+          <li>
+            <p>Main material: {{ mala2.mainMaterial }}</p>
+          </li>
+          <li>
+            <p>Guru Bead Material: {{ mala2.guruBeadMaterial }}</p>
+          </li>
+          <li>
+            <p>String Colour: {{ mala2.string }}</p>
+          </li>
+          <li>
+            <p>Number of beads: {{ mala2.length }}</p>
+          </li>
+          <li>
+            <p>Type of knot: {{ mala2.knot }}</p>
+          </li>
+          <li>
+            <p>Description: {{ mala2.description }}</p>
+          </li>
+
+          </ul>  
+        </p>
+        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div>
+{% endblock %}
+
+{% block product3 %} 
+    <div class="row">
+    <div class="col-lg-4">
+        <h2>{{ mala3.name }}</h2>
+        <p>
+          <ul>
+          <li>
+            <p>Main material: {{ mala3.mainMaterial }}</p>
+          </li>
+          <li>
+            <p>Guru Bead Material: {{ mala2.guruBeadMaterial }}</p>
+          </li>
+          <li>
+            <p>String Colour: {{ mala3.string }}</p>
+          </li>
+          <li>
+            <p>Number of beads: {{ mala3.length }}</p>
+          </li>
+          <li>
+            <p>Type of knot: {{ mala3.knot }}</p>
+          </li>
+          <li>
+            <p>Description: {{ mala3.description }}</p>
+          </li>
+
+          </ul>  
+        </p>
+        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+    </div>
+{% endblock %}
