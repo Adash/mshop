@@ -1,3 +1,7 @@
 main_homepage:
     resource: "@MainBundle/Controller"
     type:     annotation 
+
+MainBundle_product:
+    resource: "@MainBundle/Resources/config/routing/product.yml"
+    prefix:   /product

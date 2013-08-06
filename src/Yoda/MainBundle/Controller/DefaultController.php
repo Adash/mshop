@@ -9,9 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/{page}", requirements={"page" = "\d+"}, defaults={"page" = 1}) 
+     * @Route("/", name="home") 
      */
-    public function indexAction($page)
+    public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('MainBundle:Product');
@@ -27,8 +27,7 @@ class DefaultController extends Controller
             ));
 
 
-        return $this->render('MainBundle:Default:product.html.twig', array(
-            'page' => $page,
+        return $this->render('MainBundle:Default:index.html.twig', array(
             'mala1' => $product1,
             'mala2' => $product2,
             'mala3' => $product3,
