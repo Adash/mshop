@@ -1,2 +1,10 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+
+{% stylesheets 'bundles/main/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+
+{% endblock %}
+
