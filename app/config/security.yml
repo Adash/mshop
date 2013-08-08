@@ -31,9 +31,9 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/collection/new, roles: ROLE_ADMIN }
-        - { path: ^/collection/create, roles: ROLE_ADMIN }
-        - { path: ^/collection/.*/edit, roles: ROLE_ADMIN }
-        - { path: ^/collection/.*/update, roles: ROLE_ADMIN }
-        - { path: ^/collection/.*/delete, roles: ROLE_ADMIN }
+        - { path: ^/product/new, roles: ROLE_ADMIN }
+        - { path: ^/product/create, roles: ROLE_ADMIN }
+        - { path: ^/product/.*/edit, roles: ROLE_ADMIN }
+        - { path: ^/product/.*/update, roles: ROLE_ADMIN }
+        - { path: ^/product/.*/delete, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

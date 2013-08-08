@@ -7,29 +7,11 @@
     <div class="row">
     <div class="col-lg-4">
         <h2>{{ entity.name }}</h2>
-        <p>
-          <ul>
-          <li>
-            <p>Main material: {{ entity.mainMaterial }}</p>
-          </li>
-          <li>
-            <p>Guru Bead Material: {{ entity.guruBeadMaterial }}</p>
-          </li>
-          <li>
-            <p>String Colour: {{ entity.string }}</p>
-          </li>
-          <li>
-            <p>Number of beads: {{ entity.length }}</p>
-          </li>
-          <li>
-            <p>Type of knot: {{ entity.knot }}</p>
-          </li>
-          <li>
-            <p>Description: {{ entity.description }}</p>
-          </li>
-
-          </ul>  
-        </p>
+          <p>
+             <div class="span2">
+                <img src="/bundles/main/img/{{ entity.imageName }}" class="img-responsive" alt="Responsive image"/>
+             </div> 
+          </p>
         <p><a class="btn btn-default" href="{{ path('product_show', { 'id': entity.id }) }}">View details &raquo;</a></p>
     </div>
 {% endfor %}
