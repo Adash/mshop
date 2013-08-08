@@ -35,4 +35,20 @@ class DefaultController extends Controller
             'mala3' => $product3,
             );
     }
+
+    /**
+     * @Route("/collection", name="collection")
+     *
+     * @Template("MainBundle:Default:collection.html.twig") 
+     */
+    public function collectionAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('MainBundle:Product')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
 }
