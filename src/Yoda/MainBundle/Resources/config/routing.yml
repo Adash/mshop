@@ -4,4 +4,4 @@ main_homepage:
 
 MainBundle_product:
     resource: "@MainBundle/Resources/config/routing/product.yml"
-    prefix:   /product
+    prefix:   /collection

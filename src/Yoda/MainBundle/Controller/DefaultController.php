@@ -9,7 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="home") 
+     * @Route("/", name="home")
+     *
+     * @Template("MainBundle:Default:index.html.twig") 
      */
     public function indexAction()
     {
@@ -27,10 +29,10 @@ class DefaultController extends Controller
             ));
 
 
-        return $this->render('MainBundle:Default:index.html.twig', array(
+        return array(
             'mala1' => $product1,
             'mala2' => $product2,
             'mala3' => $product3,
-            ));
+            );
     }
 }
