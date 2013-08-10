@@ -337,27 +337,4 @@ class Product
     {
         return $this->price;
     }
-
-    /**
-     * Set path
-     *
-     * @param string $path
-     * @return Product
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-    
-        return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string 
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
 }

@@ -20,6 +20,7 @@ class ProductType extends AbstractType
             ->add('description')
             ->add('imageName')
             ->add('inStock')
+            ->add('price')
         ;
     }
 
