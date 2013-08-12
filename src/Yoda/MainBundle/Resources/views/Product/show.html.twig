@@ -1,39 +1,44 @@
 {% extends 'MainBundle::layout.html.twig' %}
 
+    {% block navbar %}
+    <div class="container">
+
+      <div class="masthead">
+        <!-- <h3 class="text-muted">Project name</h3> -->
+        <ul class="nav navbar-nav nav-justified">
+          <li><a href="{{ path('home') }}">Home</a></li>
+          <li class="active" ><a href="{{ path('collection') }}">Collection</a></li>
+          <li><a href="{{ path('home') }}">Philosopy</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      {% endblock %}
+
 {% block body -%}
-    <h2>Product</h2>
     <div class="row">
     <div class="col-lg-4">
-        <h2>{{ entity.name }}</h2>
-        <p>
-          <ul>
-          <li>
-            <p>Main material: {{ entity.mainMaterial }}</p>
-          </li>
-          <li>
-            <p>Guru Bead Material: {{ entity.guruBeadMaterial }}</p>
-          </li>
-          <li>
-            <p>String Colour: {{ entity.string }}</p>
-          </li>
-          <li>
-            <p>Number of beads: {{ entity.length }}</p>
-          </li>
-          <li>
-            <p>Type of knot: {{ entity.knot }}</p>
-          </li>
-          <li>
-            <p>Description: {{ entity.description }}</p>
-          </li>
-          <li>
-            <p>Price: £{{- entity.price }}</p>
-          </li>
+        <h2 class="text-warning">{{ entity.name }}</h2>
+        <dl class="dl-horizontal text-muted">
 
-          </ul>  
-        </p>
+            <dt>Main material: </dt> <dd>{{ entity.mainMaterial }}</dd>
+ 
+            <dt>Guru Bead Material: </dt> <dd>{{ entity.guruBeadMaterial }}</dd>
+
+            <dt>String Colour: </dt> <dd>{{ entity.string }}</dd>
+
+            <dt>Number of beads: </dt> <dd>{{ entity.length }}</dd>
+
+            <dt>Type of knot: </dt> <dd>{{ entity.knot }}</dd>
+
+            <dt>Description: </dt> <dd>{{ entity.description }}</dd>
+
+            <dt>Price: </dt> <dd>£{{- entity.price }}</dd>
+
+        </dl>
     </div>
 
     <div class="col-lg-7">
-        <img src="/bundles/main/img/{{ entity.imageName }}" class="img-responsive" alt="Responsive image"/>
+        <img src="/bundles/main/img/{{ entity.path }}" class="img-responsive" alt="Responsive image"/>
     </div>
 {% endblock %}

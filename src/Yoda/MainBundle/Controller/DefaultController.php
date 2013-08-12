@@ -15,25 +15,13 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('MainBundle:Product');
+       $em = $this->getDoctrine()->getManager();
 
-        $product1 = $repo->findOneBy(array(
-                'id' => 1,
-            ));
-        $product2 = $repo->findOneBy(array(
-                'id' => 2,
-            ));        
-        $product3 = $repo->findOneBy(array(
-                'id' => 3,
-            ));
-
+        $entities = $em->getRepository('MainBundle:Product')->findAll();
 
         return array(
-            'mala1' => $product1,
-            'mala2' => $product2,
-            'mala3' => $product3,
-            );
+            'entities' => $entities,
+        );
     }
 
     /**

@@ -16,24 +16,26 @@
         {% endblock %}
 
         {% block javascript %}
-             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
             {% javascripts '@MainBundle/Resources/public/js/*' %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
             
         {% endblock %}
+        <script>window.jQuery || document.write('<script src="bundles/main/js/jquery-1.10.2.min.js"><\/script>')</script>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
 
 
-    <body>
+    <div class="container-fluid">
 
     {% block logo %}
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h1>O<span style="font-size:20px;font-weight:700;color:#ff0000;">lus</span>M<span style="font-size:20px;font-weight:700;color:#ff0000;">alashop</span></h1>
-        <p class="lead">Fine selection of high quality malas</p>
+        
+ <h1>O<span style="font-size:20px;font-weight:700" class="text-danger">lus</span>M<span style="font-size:20px;font-weight:700" class="text-danger">alashop</span></h1>
+
       </div>
     {% endblock %}
 
@@ -44,7 +46,6 @@
         <!-- <h3 class="text-muted">Project name</h3> -->
         <ul class="nav navbar-nav nav-justified">
           <li class="active"><a href="{{ path('home') }}">Home</a></li>
-          <li><a href="#">Main</a></li>
           <li><a href="{{ path('collection') }}">Collection</a></li>
           <li><a href="{{ path('home') }}">Philosopy</a></li>
           <li><a href="#">About</a></li>
@@ -66,6 +67,10 @@
         
       </div><!-- /.body-content -->
 
+      </div>
+
+      </div>
+
       <!-- Site footer -->
       <div class="footer">
         <p>&copy; Adash 2013</p>
@@ -74,6 +79,8 @@
     </div> <!-- /container -->
 
         
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}  
+<script src="/bundles/main/js/javascript.js"></script>
+        {% endblock %}
     </body>
 </html>

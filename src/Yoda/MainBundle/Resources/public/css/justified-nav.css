@@ -2,6 +2,32 @@ body {
   padding-top: 20px;
 }
 
+.equal-height {
+  height: 350px;
+}
+
+.col{
+margin-bottom: -99999px;
+padding-bottom: 99999px;
+background-color:#ffc;
+}
+
+.col-wrap{  
+overflow: hidden;   
+}
+
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 950px;
+}
+
+.container-fluid-inner {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 900px;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile-first views */
 .masthead,
 .body-content,

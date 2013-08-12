@@ -1,98 +1,37 @@
 {% extends 'MainBundle::layout.html.twig' %}
 
 
-{% block products %} 
+{% block body %} 
 
-    <div class="row">
-    <div class="col-lg-4">
-        <h2>{{ mala1.name }}</h2>
-        <p>
-          <ul>
-          <li>
-            <p>Main material: {{ mala1.mainMaterial }}</p>
-          </li>
-          <li>
-            <p>Guru Bead Material: {{ mala1.guruBeadMaterial }}</p>
-          </li>
-          <li>
-            <p>String Colour: {{ mala1.string }}</p>
-          </li>
-          <li>
-            <p>Number of beads: {{ mala1.length }}</p>
-          </li>
-          <li>
-            <p>Type of knot: {{ mala1.knot }}</p>
-          </li>
-          <li>
-            <p>Description: {{ mala1.description }}</p>
-          </li>
+<div class="col-lg-12 text-info">
 
-          </ul>  
-        </p>
-        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
+<!--   <div class="col-lg-4">
+      <img src="/bundles/main/img/index01.jpg" class="img-responsive" alt="Responsive image"/>
+  </div> 
+-->
 
-    <div class="row">
-    <div class="col-lg-4">
-        <h2>{{ mala2.name }}</h2>
-        <p>
-          <ul>
-          <li>
-            <p>Main material: {{ mala2.mainMaterial }}</p>
-          </li>
-          <li>
-            <p>Guru Bead Material: {{ mala2.guruBeadMaterial }}</p>
-          </li>
-          <li>
-            <p>String Colour: {{ mala2.string }}</p>
-          </li>
-          <li>
-            <p>Number of beads: {{ mala2.length }}</p>
-          </li>
-          <li>
-            <p>Type of knot: {{ mala2.knot }}</p>
-          </li>
-          <li>
-            <p>Description: {{ mala2.description }}</p>
-          </li>
 
-          </ul>  
-        </p>
-        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
 
-    <div class="row">
-    <div class="col-lg-4">
-        <h2>{{ mala3.name }}</h2>
-        <p>
-          <ul>
-          <li>
-            <p>Main material: {{ mala3.mainMaterial }}</p>
-          </li>
-          <li>
-            <p>Guru Bead Material: {{ mala2.guruBeadMaterial }}</p>
-          </li>
-          <li>
-            <p>String Colour: {{ mala3.string }}</p>
-          </li>
-          <li>
-            <p>Number of beads: {{ mala3.length }}</p>
-          </li>
-          <li>
-            <p>Type of knot: {{ mala3.knot }}</p>
-          </li>
-          <li>
-            <p>Description: {{ mala3.description }}</p>
-          </li>
 
-          </ul>  
-        </p>
-        <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
+<p>Mala (Sanskrit:माला; mālā, meaning garland[1]) is a set of beads commonly used by Hindus and Buddhists. Malas are used for keeping count while reciting, chanting, or mentally repeating a mantra or the name or names of a deity. This practice is known in Sanskrit as japa. Malas are typically made with 16, 27, 54 or 108 beads.</p>
 
-            <div class="jumbotron">
+<p>In Tibetan Buddhism, traditionally malas of 108 beads are used. Some practitioners use malas of 21 or 28 beads for doing prostrations. Doing one 108-bead mala counts as 100 mantra recitations; the extra repetitions are done to amend any mistakes.</P>
+
+<p>Malas are mainly used to count mantras. These mantras can be recited for different purposes linked to working with mind. The material used to make the beads can vary according to the purpose of the mantras used. Some beads can be used for all purposes and all kinds of mantras. These beads can be made from the wood of the Bodhi tree (Ficus religiosa), or from 'Bodhi seeds', which come from the Rudraksha (Elaeocarpus ganitrus) and not the Bodhi tree. Another general-purpose mala is made from rattan seeds (Calamus Arecaceae), the beads themselves called 'Moon and Stars' by Tibetans, and variously called 'lotus root', 'lotus seed' and 'linden nut' by various retailers. The bead itself is very hard and dense, ivory coloured (which gradually turns a deep golden brown with long use), and has small holes (moons) and tiny black dots (stars) covering its surface.</p>
+
+<p>Pacifying mantras should be recited using white colored malas. Materials such as crystal, pearl, shell/conch or mother of pearl are preferable. These are said to purify the mind and clear away obstacles like illness, bad karma and mental disturbances. Using pearls is not practical however, as repeated use will destroy their iridescent layer. Most often pearl malas are used for showing off or 'Dharma jewelry'.</p>
+
+<p>Increasing mantras should be recited using malas of gold, silver, copper and amber. The mantras counted on these can "serve to increase life span, knowledge and merit."[3]</p>
+
+<p>Mantras for magnetizing should be recited using malas made of saffron, lotus seed, sandalwood, or other forms of wood including elm wood, peach wood, and rosewood. However, it is said the most effective is made of Mediterranean oxblood coral, which, due to a ban on harvesting, is now very rare and expensive.</p>
+</div>
+
+        <div class="jumbotron">
             <p><a class="btn btn-large btn-success" href="{{ path('product') }}">See whole collection</a></p>
         </div>
+
+
 {% endblock %}
+
 
 

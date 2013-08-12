@@ -18,9 +18,9 @@ class ProductType extends AbstractType
             ->add('knot')
             ->add('length')
             ->add('description')
-            ->add('imageName')
             ->add('inStock')
             ->add('price')
+            ->add('file')
         ;
     }
 
