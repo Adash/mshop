@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Welcome! {% endblock %}</title>
         {% block stylesheets %}
 
     <!-- Bootstrap core CSS -->
@@ -29,11 +29,19 @@
 
 
     <div class="container-fluid">
-
+<div class="row">
+    <div class="col-lg-1 col-offset-10"> 
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+      <a class="btn btn-default" href="{{ path('logout') }}">Logout {{ app.user.username }}</a> 
+    {% else %}
+      <a class="btn btn-default" href="{{ path('login') }}">Login</a> 
+    {% endif %}
+    </div>
+</div>
     {% block logo %}
       <!-- Jumbotron -->
       <div class="jumbotron">
-        
+
  <h1>O<span style="font-size:20px;font-weight:700" class="text-danger">lus</span>M<span style="font-size:20px;font-weight:700" class="text-danger">alashop</span></h1>
 
       </div>
@@ -73,14 +81,17 @@
 
       <!-- Site footer -->
       <div class="footer">
-        <p>&copy; Adash 2013</p>
+        <p>&copy; Adash 2013</p> 
+      {% if is_granted('ROLE_ADMIN') %}  
+          <a href="{{ path('product') }}">Product</a>
+      {% endif %}
       </div>
 
     </div> <!-- /container -->
 
         
-        {% block javascripts %}  
-<script src="/bundles/main/js/javascript.js"></script>
+        {% block javascripts %} 
+          <script src="/bundles/main/js/javascript.js"></script>
         {% endblock %}
     </body>
 </html>

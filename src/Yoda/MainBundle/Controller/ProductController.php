@@ -4,6 +4,7 @@ namespace Yoda\MainBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Yoda\MainBundle\Entity\Product;
 use Yoda\MainBundle\Form\ProductType;
@@ -19,13 +20,18 @@ class ProductController extends Controller
      * Lists all Product entities.
      *
      */
-    public function indexAction()
+    public function productAction()
     {
+        //$securityContext = $this->container->get('security.context');
+        //if (!$securityContext->isGranted('ROLE_ADMIN')) {
+        //    throw new AccessDeniedException('Whoops');
+        //}
+
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('MainBundle:Product')->findAll();
 
-        return $this->render('MainBundle:Product:index.html.twig', array(
+        return $this->render('MainBundle:Product:product.html.twig', array(
             'entities' => $entities,
         ));
     }

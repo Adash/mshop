@@ -1,4 +1,4 @@
-main_homepage:
+main:
     resource: "@MainBundle/Controller"
     type:     annotation 
 

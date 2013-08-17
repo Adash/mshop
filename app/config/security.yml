@@ -1,17 +1,14 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Yoda\UserBundle\Entity\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: cojapacze, roles: [ 'ROLE_ADMIN' ] }
+        clients:
+            entity: { class: UserBundle:User }
 
     firewalls:
         dev:
@@ -24,13 +21,15 @@ security:
                 check_path: /login_check
                 login_path: /login
             logout:
-                path:   /ogout
+                path:   /logout
                 target: /
+                invalidate_session: false
             anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
+        - { path: ^/product/new, roles: ROLE_ADMIN }
         - { path: ^/product/new, roles: ROLE_ADMIN }
         - { path: ^/product/create, roles: ROLE_ADMIN }
         - { path: ^/product/.*/edit, roles: ROLE_ADMIN }

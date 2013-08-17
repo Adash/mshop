@@ -1,6 +1,6 @@
 product:
     pattern:  /
-    defaults: { _controller: "MainBundle:Product:index" }
+    defaults: { _controller: "MainBundle:Product:product" }
 
 product_show:
     pattern:  /{id}/show
