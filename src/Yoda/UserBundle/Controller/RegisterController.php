@@ -20,6 +20,8 @@ Class RegisterController extends Controller
     {
         $form = $this->createFormBuilder()
             ->add('username', 'text')
+            ->add('name', 'text')
+            ->add('surname', 'text')
             ->add('email', 'email')
             ->add('password', 'repeated', array(
                     'type'=>'password'
@@ -38,6 +40,8 @@ Class RegisterController extends Controller
             $user = new User();
             $user->setUsername($data['username']); 
             $user->setEmail($data['email']);
+            $user->setName($data['name']);
+            $user->setSurname($data['surname']);
             $user->setPassword($this->encodePassword($user, $data['password']));
 
             $em = $this->getDoctrine()->getManager();
@@ -48,8 +52,9 @@ Class RegisterController extends Controller
 
             return $this->redirect($url);
         }
-
-        //var_dump($form);
+        //if (isset($data)){
+        //var_dump($data);
+        //}
 
         return array('form' => $form->createView());
     }

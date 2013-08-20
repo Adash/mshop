@@ -7,9 +7,10 @@
         <form action="{{ path('register') }}" method="POST" role="form">
 
                 {{ form_errors(form) }}
-            <div>
+            
                 {{ form_row(form.username) }}
-            <div>
+                {{ form_row(form.name) }}
+                {{ form_row(form.surname) }}
                 {{ form_row(form.email) }}
                 {{ form_row(form.password.first, {
                     'label': 'Password'
@@ -19,7 +20,7 @@
                 }) }}
 
                 {{ form_rest(form) }} {# takes care of errors not assigned to any specific field#}
-            </div>
+            
             <input class="btn btn-default" type="submit" value="Register" /> 
         </form>
 
