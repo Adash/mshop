@@ -1,14 +1,23 @@
 security:
     encoders:
         Yoda\UserBundle\Entity\User: sha512
+        Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+            chain:
+                providers: [clients, in_memory]
         clients:
             entity: { class: UserBundle:User }
+        in_memory:
+            memory:
+                users:
+                    olus: { password: karmapapa }
+                    adi: { password: baniak }
 
     firewalls:
         dev:

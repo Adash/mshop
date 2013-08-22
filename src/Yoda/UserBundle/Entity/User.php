@@ -3,15 +3,20 @@
 namespace Yoda\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
 use Symfony\Component\Validator\Constraints as Assert;
+
+
 
 /**
  * User
  *
  * @ORM\Table(name="Clients")
  * @ORM\Entity(repositoryClass="Yoda\UserBundle\Entity\UserRepository")
+ * @UniqueEntity(fields="username", message="That username is already in use :( sorry.")
+ * @UniqueEntity(fields="email", message="That email address is already registered")
  */
 class User implements AdvancedUserInterface
 {
@@ -28,6 +33,8 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)
+     * @Assert\NotBlank(message="please find made up some fancy username for your account :)"), max=20, maxMessage="Wooaa! Cound you think of something shorter please :)")
+     * @Assert\Length(min=3, minMessage="Enter something longer :)", max=20, maxMessage="Wooaa! Cound you think of something shorter please :)")
      */
     private $username;
 
@@ -35,6 +42,7 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="what's your name sweetheart?")
      */
     private $name;
 
@@ -42,6 +50,7 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank(message="Your surname was...?")
      */
     private $surname;
 
@@ -76,10 +85,17 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="can I have your email address please? :)")
      * @Assert\Email
      */
     private $email;
+
+    /**
+     * @Assert\NotBlank(message="Enter your password please")
+     * @Assert\Length(min=6, minMessage="The password should be at least 6 characters long")
+     * 
+     */
+    private $plainPassword;
 
 
     public function __construct()
@@ -183,7 +199,7 @@ class User implements AdvancedUserInterface
 
         public function eraseCredentials()
     {
-        // blank for now
+        $this->setPlainPassword(null);
     }
 
     /**
@@ -360,4 +376,15 @@ class User implements AdvancedUserInterface
     {
         return $this->surname;
     }
+
+        public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
 }
