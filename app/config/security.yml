@@ -16,8 +16,8 @@ security:
         in_memory:
             memory:
                 users:
-                    olus: { password: karmapapa }
-                    adi: { password: baniak }
+                    olus: { password: karmapapa, roles: [ 'ROLE_ADMIN' ]  }
+                    adi: { password: baniak, roles: [ 'ROLE_ADMIN' ]  }
 
     firewalls:
         dev:
