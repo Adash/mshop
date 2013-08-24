@@ -63,3 +63,12 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+#Sylius Cart Configuration
+sylius_cart:
+    driver: doctrine/orm # Configure the doctrine orm driver used in documentation.
+    resolver: app.cart_item_resolver # The id of our newly created service.
+    classes:
+        item:
+            model: Yoda\MainBundle\Entity\CartItem # The item entity.
+

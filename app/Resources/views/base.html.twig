@@ -26,7 +26,15 @@
         <script>window.jQuery || document.write('<script src="bundles/main/js/jquery-1.10.2.min.js"><\/script>')</script>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
+<body>
 
+  {% if app.session.flashbag.has('congrats') %}
+    <div class="alert alert-success">
+      {% for msg in app.session.flashbag.get('congrats') %}
+        {{ msg }}
+      {% endfor %}
+    </div>
+  {% endif %}
 
     <div class="container-fluid">
 <div class="row">
@@ -38,6 +46,7 @@
     {% endif %}
     </div>
 </div>
+
     {% block logo %}
       <!-- Jumbotron -->
       <div class="jumbotron">

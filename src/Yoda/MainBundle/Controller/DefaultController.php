@@ -20,14 +20,14 @@ class DefaultController extends Controller
         $entities = $em->getRepository('MainBundle:Product')->findAll();
 
         // vey clever debuging code showing the details of the currently logged user
-        $securityContext = $this->get('security.context');
+        /*$securityContext = $this->get('security.context');
         $user = $securityContext->getToken()->getUser();
 
         if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')){
                 var_dump($user);
-        }
+        }*/
         //end
-        
+
         return array(
             'entities' => $entities,
         );
