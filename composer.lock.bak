@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "bcde8ec958c3e8e9b155e944c742069c",
+    "hash": "53e82097b634105eb20a09c8c0268081",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/40db0c96985aab2822edbc4848b3bd2429e02670",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +471,7 @@
                     "email": "kontakt@beberlei.de"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -530,7 +530,7 @@
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -746,12 +746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "763c8406f0e07f912911d6dc113f210125cf38e1"
+                "reference": "8f9f41b1218eb3084fec41140337ffd407bd3785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/763c8406f0e07f912911d6dc113f210125cf38e1",
-                "reference": "763c8406f0e07f912911d6dc113f210125cf38e1",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/8f9f41b1218eb3084fec41140337ffd407bd3785",
+                "reference": "8f9f41b1218eb3084fec41140337ffd407bd3785",
                 "shasum": ""
             },
             "require": {
@@ -818,7 +818,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2013-08-24 17:38:36"
+            "time": "2013-08-22 17:42:52"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1059,7 +1059,7 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes M. Schmitt",
+                    "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
@@ -1152,12 +1152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f"
+                "reference": "v1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/735cffd3982c6e8cdebe292d5db39d077f65890f",
-                "reference": "735cffd3982c6e8cdebe292d5db39d077f65890f",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.2",
+                "reference": "v1.1.2",
                 "shasum": ""
             },
             "require": {
@@ -1687,12 +1687,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "619aceb969f1e8759edc28fb22f9b64b3bddbc1e"
+                "reference": "v5.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/619aceb969f1e8759edc28fb22f9b64b3bddbc1e",
-                "reference": "619aceb969f1e8759edc28fb22f9b64b3bddbc1e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/v5.0.1",
+                "reference": "v5.0.1",
                 "shasum": ""
             },
             "require": {
@@ -2158,12 +2158,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "fcb51c97dd098feb03cbd6f65586b121763eea17"
+                "reference": "6610a7c80e9cb30a26ed434e3046b2abb9b0dd46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/fcb51c97dd098feb03cbd6f65586b121763eea17",
-                "reference": "fcb51c97dd098feb03cbd6f65586b121763eea17",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6610a7c80e9cb30a26ed434e3046b2abb9b0dd46",
+                "reference": "6610a7c80e9cb30a26ed434e3046b2abb9b0dd46",
                 "shasum": ""
             },
             "require": {
@@ -2258,7 +2258,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-08-24 15:27:17"
+            "time": "2013-08-23 15:31:47"
         },
         {
             "name": "twig/extensions",

@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@MainBundle/Resources/config/services.xml" }
 
 framework:
     #esi:             ~
@@ -64,11 +65,8 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-#Sylius Cart Configuration
-sylius_cart:
-    driver: doctrine/orm # Configure the doctrine orm driver used in documentation.
-    resolver: app.cart_item_resolver # The id of our newly created service.
-    classes:
-        item:
-            model: Yoda\MainBundle\Entity\CartItem # The item entity.
-
+#sylius_cart:
+#    resolver: app.cart_item_resolver.default
+#    classes:
+#        item:
+#            form: Sylius\Bundle\CoreBundle\Form\Type\CartItemType
