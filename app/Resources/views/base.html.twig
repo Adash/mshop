@@ -36,16 +36,16 @@
     </div>
   {% endif %}
 
-    <div class="container-fluid">
-<div class="row">
+<div class="container-fluid">
+  <div class="row">
     <div class="col-lg-1 col-offset-10"> 
-    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-      <a class="btn btn-default" href="{{ path('logout') }}">Logout {{ app.user.username }}</a> 
-    {% else %}
-      <a class="btn btn-default" href="{{ path('login') }}">Login</a> 
-    {% endif %}
+      {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <a class="btn btn-default" href="{{ path('logout') }}">Logout {{ app.user.username }}</a> 
+      {% else %}
+        <a class="btn btn-default" href="{{ path('login') }}">Login</a> 
+      {% endif %}
     </div>
-</div>
+  </div>
 
     {% block logo %}
       <!-- Jumbotron -->

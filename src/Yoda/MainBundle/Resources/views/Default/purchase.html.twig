@@ -1,0 +1,24 @@
+{% extends 'MainBundle::layout.html.twig' %}
+
+{% block navbar %}
+<div class="container">
+
+  <div class="masthead">
+    <!-- <h3 class="text-muted">Project name</h3> -->
+    <ul class="nav navbar-nav nav-justified">
+      <li><a href="{{ path('home') }}">Home</a></li>
+      <li class="active" ><a href="{{ path('collection') }}">Collection</a></li>
+      <li><a href="{{ path('home') }}">Philosopy</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  {% endblock %}
+
+{% block body -%}
+
+Enter your address {{ user.username }}.
+Your product id is {{ id }}
+
+
+{% endblock %}

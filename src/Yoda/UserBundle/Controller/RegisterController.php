@@ -10,6 +10,7 @@ use Yoda\UserBundle\Entity\User;
 use Yoda\UserBundle\Form\RegisterFormType;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\SecurityContext;
 
 
 Class RegisterController extends Controller
@@ -22,6 +23,12 @@ Class RegisterController extends Controller
     */
     public function registerAction(Request $request)
     {
+        $session = $request->getSession();
+
+        $lastUsername = $session->get(SecurityContext::LAST_USERNAME);
+
+        var_dump($lastUsername);
+
         $defaultUser = new User();
         $defaultUser->setUsername('username');
 
@@ -55,7 +62,9 @@ Class RegisterController extends Controller
         //var_dump($data);
         //}
         }
-        return array('form' => $form->createView());
+        return array(
+            'form' => $form->createView(), 
+            );
     }
 
     private function encodePassword($user, $plainPassword)
