@@ -3,6 +3,7 @@
 namespace Yoda\MainBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
@@ -88,6 +89,13 @@ class ProductController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Product entity.');
         }
+
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        // ... not sure how to make it work ... freezing
+        //if (is_string($user)) {
+        //    $session->set("productId", $id);
+        //}
 
         $deleteForm = $this->createDeleteForm($id);
 

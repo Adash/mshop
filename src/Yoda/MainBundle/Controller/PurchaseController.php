@@ -29,6 +29,7 @@ class PurchaseController extends Controller
 
         $this->createOrder($user->getId(), $id);
 
+
         return array(
             'user' => $user,
             'id' => $id
