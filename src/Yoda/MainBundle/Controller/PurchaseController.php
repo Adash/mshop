@@ -25,14 +25,19 @@ class PurchaseController extends Controller
      */
     public function purchaseAction($id)
     {
+
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $this->createOrder($user->getId(), $id);
+        $purchasedItem = $this->getPurchasedItem($id);
+
+        $purchasedItemName = $this->getPurchasedItem($id)->getName();
+
+        $this->createOrder($user, $purchasedItem);
 
 
         return array(
             'user' => $user,
-            'id' => $id
+            'purchasedItemName' => $purchasedItemName
             );
     }
 
@@ -49,11 +54,11 @@ class PurchaseController extends Controller
         return $entity;
     }
 
-    public function createOrder($userId, $productId)
+    public function createOrder($user, $product)
     {
         $order = new Orders();
-        $order->setBuyer($userId);
-        $order->setItemName($productId);
+        $order->setBuyer($user);
+        $order->setItem($product);
      //   $order->setDateOrdered('today');
         $order->setAddress('test');
 

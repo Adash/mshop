@@ -1,0 +1,52 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Orders</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Buyer</th>
+                <td>{{ entity.buyer }}</td>
+            </tr>
+            <tr>
+                <th>Itemname</th>
+                <td>{{ entity.itemName }}</td>
+            </tr>
+            <tr>
+                <th>Dateordered</th>
+                <td>{{ entity.dateOrdered|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datepayed</th>
+                <td>{{ entity.datePayed|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datedispatched</th>
+                <td>{{ entity.dateDispatched|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ entity.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('orders') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('orders_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

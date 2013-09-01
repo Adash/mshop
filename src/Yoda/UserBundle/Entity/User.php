@@ -387,4 +387,9 @@ class User implements AdvancedUserInterface
         $this->plainPassword = $plainPassword;
     }
 
+    public function __toString(){
+        $n = $this->name . " " . $this->surname;
+        return $n;
+    }
+
 }

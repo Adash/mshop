@@ -1,0 +1,51 @@
+{% extends 'UserBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Orders list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Buyer</th>
+                <th>Itemname</th>
+                <th>Dateordered</th>
+                <th>Datepayed</th>
+                <th>Datedispatched</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('orders_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.buyer.name }}</td>
+                <td>{{ entity.item.name }}</td>
+                <td>{% if entity.dateOrdered %}{{ entity.dateOrdered|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.datePayed %}{{ entity.datePayed|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateDispatched %}{{ entity.dateDispatched|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.address }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('orders_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('orders_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('orders_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

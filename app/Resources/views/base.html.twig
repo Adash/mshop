@@ -92,7 +92,9 @@
       <div class="footer">
         <p>&copy; Adash 2013</p> 
       {% if is_granted('ROLE_ADMIN') %}  
-          <a href="{{ path('product') }}">Product</a>
+          <a href="{{ path('product') }}">Product management</a>
+        </br>
+          <a href="{{ path('orders') }}">Orders management</a>
       {% endif %}
       {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
       {% else %}

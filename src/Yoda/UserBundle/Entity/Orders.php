@@ -26,18 +26,16 @@ class Orders
     private $id;
 
     /**
-     * @var string
+     * 
      * @ORM\ManyToOne(targetEntity="Yoda\UserBundle\Entity\User")
-     * @ORM\Column(name="buyer", type="string", length=255)
      */
     private $buyer;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="itemName", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Yoda\MainBundle\Entity\Product")
      */
-    private $itemName;
+    private $item;
 
     /**
      * @var \DateTime
@@ -78,50 +76,28 @@ class Orders
         return $this->id;
     }
 
-    /**
-     * Set buyer
-     *
-     * @param string $buyer
-     * @return Orders
-     */
-    public function setBuyer($buyer)
+    public function setBuyer(User $buyer)
     {
         $this->buyer = $buyer;
     
         return $this;
     }
 
-    /**
-     * Get buyer
-     *
-     * @return string 
-     */
     public function getBuyer()
     {
         return $this->buyer;
     }
 
-    /**
-     * Set itemName
-     *
-     * @param string $itemName
-     * @return Orders
-     */
-    public function setItemName($itemName)
+    public function setItem($item)
     {
-        $this->itemName = $itemName;
+        $this->item = $item;
     
         return $this;
     }
 
-    /**
-     * Get itemName
-     *
-     * @return string 
-     */
-    public function getItemName()
+    public function getItem()
     {
-        return $this->itemName;
+        return $this->item;
     }
 
     /**
