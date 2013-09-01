@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Orders list</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -20,7 +20,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('orders_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.buyer.name }}</td>
+                <td>{{ entity.buyer.name }} {{ entity.buyer.surname }}</td>
                 <td>{{ entity.item.name }}</td>
                 <td>{% if entity.dateOrdered %}{{ entity.dateOrdered|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if entity.datePayed %}{{ entity.datePayed|date('Y-m-d H:i:s') }}{% endif %}</td>

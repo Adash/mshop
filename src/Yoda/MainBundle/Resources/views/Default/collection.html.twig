@@ -12,6 +12,7 @@
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
+
       </div>
       {% endblock %}
 
@@ -19,17 +20,21 @@
 {% block products %} 
 
 <div>
+
 <div class="inline-block text-center">
 {% for entity in entities %} 
 
-    <div class="col-lg-3 text-muted">
-        <h3>{{ entity.name }}</h3>
-          <p>
-             <div class="span2">
-                <img src="/bundles/main/img/{{ entity.path }}" class="img-responsive" alt="Responsive image"/>
-             </div> 
-          </p>
+    <div class="col-lg-3">
+      <div class="thumbnail">
+        <div >
+            <p>
+              <a href="{{ path('product_show', { 'id': entity.id }) }}">
+              <img src="/bundles/main/img/{{ entity.path }}" class="img-responsive" alt="Responsive image"/>&raquo;</a>
+            </p> 
+        <h3 class="text-muted">{{ entity.name }}</h3>
         <p><a class="btn btn-default" href="{{ path('product_show', { 'id': entity.id }) }}">View details &raquo;</a></p>
+        </div>
+      </div>
     </div>
 
 {% endfor %}
