@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 use Yoda\MainBundle\Entity\Product;
-use Yoda\MainBundle\Form\ProductType;
+use Yoda\MainBundle\Form\ProductTypeTwo;
 
 /**
  * Product controller.
@@ -43,7 +43,7 @@ class ProductController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Product();
-        $form = $this->createForm(new ProductType(), $entity);
+        $form = $this->createForm(new ProductTypeTwo(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -68,7 +68,7 @@ class ProductController extends Controller
     public function newAction()
     {
         $entity = new Product();
-        $form   = $this->createForm(new ProductType(), $entity);
+        $form   = $this->createForm(new ProductTypeTwo(), $entity);
 
         return $this->render('MainBundle:Product:new.html.twig', array(
             'entity' => $entity,
