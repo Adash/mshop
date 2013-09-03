@@ -18,7 +18,7 @@ class ProductTypeTwo extends AbstractType
             ->add('knot')
             ->add('length')
             ->add('description')
-            ->add('inStock', 'text', array('label' => 'Is in stock?','required' => false))
+            ->add('inStock', 'checkbox', array('label' => 'Is in stock?','required' => false))
             ->add('price')
             ->add('file')
         ;
@@ -33,6 +33,6 @@ class ProductTypeTwo extends AbstractType
 
     public function getName()
     {
-        return 'yoda_mainbundle_producttype';
+        return 'horizontal_form';
     }
 }
