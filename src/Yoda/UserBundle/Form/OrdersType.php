@@ -15,8 +15,11 @@ class OrdersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('buyer')
-            ->add('itemName')
+            /* will have to add some method to display the current buyer and item objects
+            and allow user to edit them -- leaving this for later
+            */
+            //->add('buyer')
+            //->add('item')
             ->add('dateOrdered')
             ->add('datePayed')
             ->add('dateDispatched')

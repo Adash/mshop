@@ -1,9 +1,9 @@
 {% extends 'UserBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Orders</h1>
+    <h2 class="text-info">Orders</h2>
 
-    <table class="record_properties">
+    <table class="record_properties table table-striped">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -11,22 +11,22 @@
             </tr>
             <tr>
                 <th>Buyer</th>
-                <td>{{ entity.buyer }}</td>
+                <td>{{ entity.buyer.name }}</td>
             </tr>
             <tr>
-                <th>Itemname</th>
-                <td>{{ entity.itemName }}</td>
+                <th>Item Name</th>
+                <td>{{ entity.item.name }}</td>
             </tr>
             <tr>
-                <th>Dateordered</th>
+                <th>Date Ordered</th>
                 <td>{{ entity.dateOrdered|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Datepayed</th>
+                <th>Date Payed</th>
                 <td>{{ entity.datePayed|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Datedispatched</th>
+                <th>Date Dispatched</th>
                 <td>{{ entity.dateDispatched|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>

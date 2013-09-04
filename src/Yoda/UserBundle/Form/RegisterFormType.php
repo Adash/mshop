@@ -16,8 +16,9 @@ class RegisterFormType extends AbstractType
             ->add('surname', 'text')
             ->add('email', 'email')
             ->add('plainPassword', 'repeated', array(
-                    'type'=>'password'
-        ));
+                    'type'=>'password'))
+            //->add('Register', 'submit') inquire later...
+            ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -29,6 +30,6 @@ class RegisterFormType extends AbstractType
 
     public function getName() 
     {
-        return 'user_register';
+        return 'register';
     }
 }
