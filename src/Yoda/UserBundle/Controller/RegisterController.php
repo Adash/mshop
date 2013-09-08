@@ -23,19 +23,21 @@ Class RegisterController extends Controller
     */
     public function registerAction(Request $request)
     {
-        $session = $request->getSession();
+        //var_dump($request);
 
-        $lastUsername = $session->get(SecurityContext::LAST_USERNAME);
+        //$session = $request->getSession();
 
-        var_dump($lastUsername);
+        //$lastUsername = $session->get(SecurityContext::LAST_USERNAME);
 
-        $defaultUser = new User();
-        $defaultUser->setUsername('username');
+        //var_dump($lastUsername);
 
-        $form = $this->createForm(new RegisterFormType(), $defaultUser);
+        //$defaultUser = new User();
+        //$defaultUser->setUsername('username');
+
+        $form = $this->createForm(new RegisterFormType());
 
         if ($request->isMethod('POST')) {
-            $form->bind($request);
+            $form->handleRequest($request);
 
             if ($form->isValid()){
                 //var_dump($form->getData());

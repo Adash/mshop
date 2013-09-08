@@ -6,6 +6,10 @@
             <form action="{{ path('product_create') }}" method="post" {{ form_enctype(form) }}>
                 <div>
                 	{{ form_widget(form) }}
+
+                    {{ form_widget(form.file, { 'attr': {'name': 'files[]'} }) }}
+
+                    {{ form_rest(form) }}
                 </div>
                 <div>
 

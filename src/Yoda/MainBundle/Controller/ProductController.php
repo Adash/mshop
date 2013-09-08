@@ -48,7 +48,7 @@ class ProductController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity->upload();
+            //$entity->upload();
             $em->persist($entity);
             $em->flush();
 
@@ -67,6 +67,7 @@ class ProductController extends Controller
      */
     public function newAction()
     {
+
         $entity = new Product();
         $form   = $this->createForm(new ProductTypeTwo(), $entity);
 
@@ -83,6 +84,10 @@ class ProductController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
+
+        //$entity = new Product();
+
+        //var_dump($entity);
 
         $entity = $em->getRepository('MainBundle:Product')->find($id);
 

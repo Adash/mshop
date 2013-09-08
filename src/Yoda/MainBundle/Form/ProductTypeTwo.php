@@ -20,8 +20,9 @@ class ProductTypeTwo extends AbstractType
             ->add('description')
             ->add('inStock', 'checkbox', array('label' => 'Is in stock?','required' => false))
             ->add('price')
-            ->add('file')
-        ;
+            ->add('file', 'file', array('label' => 'Main Photo','required' => true))
+            ->add('fileA', 'file', array('label' => 'Additional Photo','required' => false))
+            ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

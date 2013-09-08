@@ -38,8 +38,9 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/product, roles: ROLE_ADMIN }
-        - { path: ^/orders, roles: ROLE_ADMIN }
+        - { path: ^/product/.*/show, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/product/, roles: ROLE_ADMIN }
+        - { path: ^/orders/, roles: ROLE_ADMIN }
         - { path: ^/.*/new, roles: ROLE_ADMIN }
         - { path: ^/.*/create, roles: ROLE_ADMIN }
         - { path: ^/.*/.*/edit, roles: ROLE_ADMIN }
