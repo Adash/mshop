@@ -123,7 +123,7 @@ class ProductController extends Controller
             throw $this->createNotFoundException('Unable to find Product entity.');
         }
 
-        $editForm = $this->createForm(new ProductType(), $entity);
+        $editForm = $this->createForm(new ProductTypeTwo(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MainBundle:Product:edit.html.twig', array(
@@ -148,7 +148,7 @@ class ProductController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new ProductType(), $entity);
+        $editForm = $this->createForm(new ProductTypeTwo(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

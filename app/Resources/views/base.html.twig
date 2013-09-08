@@ -9,7 +9,7 @@
         {% block stylesheets %}
 
     <!-- Bootstrap core CSS -->
-{% stylesheets '@MainBundle/Resources/public/css/*' filter='cssrewrite' %}
+{% stylesheets 'bundles/main/css/*' filter='cssrewrite' %}
     <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
 

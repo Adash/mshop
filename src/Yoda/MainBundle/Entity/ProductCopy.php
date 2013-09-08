@@ -340,22 +340,34 @@ class Product
         return $this->price;
     }
 
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Product
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    
+        return $this;
+    }
 
     /**
      * Get path
      *
      * @return string 
      */
-    public function getPaths()
+    public function getPath()
     {
-        return array($this->path, $this->pathA);
+        return $this->path;
     }
 
-    public function getAbsolutePaths($pathX)
+    public function getAbsolutePath()
     {
-        return null === $this->$pathX
+        return null === $this->path
             ? null
-            : $this->getUploadRootDir().'/'.$this->$pathX;
+            : $this->getUploadRootDir().'/'.$this->path;
     }
 
     public function getWebPath()
@@ -384,9 +396,9 @@ class Product
      *
      * @return UploadedFile
      */
-    public function getFiles()
+    public function getFile()
     {
-        return array($this->file, $this->fileA);
+        return $this->file;
     }
 
 
@@ -414,11 +426,10 @@ class Product
      */
     public function preUpload()
     {
-        $getFilesZ = $this->getFiles();
-        if (null !== $getFilesZ[0]) {
+        if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
-            $this->path = $filename.'.'.$getFilesZ[0]->guessExtension();
+            $this->path = $filename.'.'.$this->getFile()->guessExtension();
         }
     }
 
@@ -428,15 +439,14 @@ class Product
      */
     public function upload()
     {
-        $getFilesZ = $this->getFiles();
-        if (null === $getFilesZ[0]) {
+        if (null === $this->getFile()) {
             return;
         }
 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $getFilesZ[0]->move($this->getUploadRootDir(), $this->path);
+        $this->getFile()->move($this->getUploadRootDir(), $this->path);
 
         // check if we have an old image
         if (isset($this->temp)) {
@@ -453,12 +463,8 @@ class Product
      */
     public function removeUpload()
     {
-        if ($file = $this->getAbsolutePaths('path')) {
+        if ($file = $this->getAbsolutePath()) {
             unlink($file);
-        }
-
-        if ($fileA = $this->getAbsolutePaths('pathA')) {
-            unlink($fileA);
         }
     }
 
@@ -466,6 +472,35 @@ class Product
 //
 //--------------------------------
 
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return Product
+     */
+    public function setPathA($pathA)
+    {
+        $this->pathA = $pathA;
+    
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPathA()
+    {
+        return $this->pathA;
+    }
+
+    public function getAbsolutePathA()
+    {
+        return null === $this->pathA
+            ? null
+            : $this->getUploadRootDir().'/'.$this->pathA;
+    }
 
     public function getWebPathA()
     {
@@ -474,6 +509,16 @@ class Product
             : $this->getUploadDir().'/'.$this->pathA;
     }
 
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileA()
+    {
+        return $this->fileA;
+    }
 
 
 /**
@@ -500,11 +545,10 @@ class Product
      */
     public function preUploadA()
     {
-        $getFilesZ = $this->getFiles();
-        if (null !== $getFilesZ[1]) {
+        if (null !== $this->getFileA()) {
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
-            $this->pathA = $filename.'.'.$getFilesZ[1]->guessExtension();
+            $this->pathA = $filename.'.'.$this->getFileA()->guessExtension();
         }
     }
 
@@ -514,15 +558,14 @@ class Product
      */
     public function uploadA()
     {
-        $getFilesZ = $this->getFiles();
-        if (null === $getFilesZ[1]) {
+        if (null === $this->getFileA()) {
             return;
         }
 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $getFilesZ[1]->move($this->getUploadRootDir(), $this->pathA);
+        $this->getFileA()->move($this->getUploadRootDir(), $this->pathA);
 
         // check if we have an old image
         if (isset($this->temp)) {
@@ -534,6 +577,15 @@ class Product
         $this->fileA = null;
     }
 
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUploadA()
+    {
+        if ($fileA = $this->getAbsolutePath()) {
+            unlink($fileA);
+        }
+    }
 
 //endof Uploading second file -- temporary solution
 
