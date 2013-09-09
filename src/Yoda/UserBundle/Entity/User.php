@@ -4,6 +4,7 @@ namespace Yoda\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -97,10 +98,16 @@ class User implements AdvancedUserInterface
      */
     private $plainPassword;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Yoda\UserBundle\Entity\Orders", mappedBy="buyer")
+     */
+    protected $orders;
+
 
     public function __construct()
     {
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
+        $this->orders = new ArrayCollection();
     }
 
 
@@ -390,6 +397,12 @@ class User implements AdvancedUserInterface
     public function __toString(){
         $n = $this->name . " " . $this->surname;
         return $n;
+    }
+
+
+    public function getOrders()
+    {
+        return $this->orders;
     }
 
 }

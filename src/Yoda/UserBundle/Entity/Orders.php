@@ -27,7 +27,7 @@ class Orders
 
     /**
      * 
-     * @ORM\ManyToOne(targetEntity="Yoda\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Yoda\UserBundle\Entity\User", inversedBy="orders")
      */
     private $buyer;
 

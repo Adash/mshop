@@ -358,12 +358,6 @@ class Product
             : $this->getUploadRootDir().'/'.$this->$pathX;
     }
 
-    public function getWebPath()
-    {
-        return null === $this->path
-            ? null
-            : $this->getUploadDir().'/'.$this->path;
-    }
 
     protected function getUploadRootDir()
     {
@@ -405,6 +399,24 @@ class Product
             $this->path = null;
         } else {
             $this->path = 'initial';
+        }
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileA(UploadedFile $fileA = null)
+    {
+        $this->fileA = $fileA;
+        // check if we have an old image path
+        if (isset($this->pathA)) {
+            // store the old name to delete after the update
+            $this->temp = $this->pathA;
+            $this->pathA = null;
+        } else {
+            $this->pathA = 'initial';
         }
     }
 
@@ -467,33 +479,6 @@ class Product
 //--------------------------------
 
 
-    public function getWebPathA()
-    {
-        return null === $this->pathA
-            ? null
-            : $this->getUploadDir().'/'.$this->pathA;
-    }
-
-
-
-/**
-     * Sets file.
-     *
-     * @param UploadedFile $file
-     */
-    public function setFileA(UploadedFile $fileA = null)
-    {
-        $this->fileA = $fileA;
-        // check if we have an old image path
-        if (isset($this->pathA)) {
-            // store the old name to delete after the update
-            $this->temp = $this->pathA;
-            $this->pathA = null;
-        } else {
-            $this->pathA = 'initial';
-        }
-    }
-
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
@@ -537,7 +522,22 @@ class Product
 
 //endof Uploading second file -- temporary solution
 
+/* There is no use for these at the moment
 
+    public function getWebPath()
+    {
+        return null === $this->path
+            ? null
+            : $this->getUploadDir().'/'.$this->path;
+    }
+
+        public function getWebPathA()
+    {
+        return null === $this->pathA
+            ? null
+            : $this->getUploadDir().'/'.$this->pathA;
+    }
+*/
 
 }
 

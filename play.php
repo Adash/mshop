@@ -19,22 +19,16 @@ $container->set('request', $request);
 
 use Yoda\MainBundle\Entity\Product;
 
-$product = new Product();
-$product->setName('Crystal mala with Amethyst');
-$product->setMainMaterial('Crystal');
-$product->setGuruBeadMaterial('Amethyst');
-$product->setString('Blue');
-$product->setKnot('Mahakala');
-$product->setLength('108');
-$product->setDescription('Beautiful crystal mala with aber guru bead');
-$product->setImageName('crystal_amber001.jpg');
-$product->setInStock(true);
+
 
 $em = $container->get('doctrine')->getManager();
-$em->persist($product);
-$em->flush();
-echo ("done");
-
+$user=$em->getRepository('UserBundle:User')
+->findOneBy(array('name' => 'bolek'));
+echo ("done\n");
+$orders = $user->getOrders();
+var_dump ($orders[1]);
+//var_dump(count($user->getOrders()));
+echo ("\n");
 
 
 
