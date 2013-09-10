@@ -19,18 +19,18 @@ use Yoda\MainBundle\Form\ProductType;
 class PurchaseController extends Controller
 {
     /**
-     * @Route("/purchase/{id}", name="purchase")
+     * @Route("/purchase/{slug}", name="purchase")
      *
      * @Template("MainBundle:Default:purchase.html.twig") 
      */
-    public function purchaseAction($id)
+    public function purchaseAction($slug)
     {
 
         $user = $this->get('security.context')->getToken()->getUser();
 
-        $purchasedItem = $this->getPurchasedItem($id);
+        $purchasedItem = $this->getPurchasedItem($slug);
 
-        $purchasedItemName = $this->getPurchasedItem($id)->getName();
+        $purchasedItemName = $this->getPurchasedItem($slug)->getName();
 
         $this->createOrder($user, $purchasedItem);
 
@@ -41,11 +41,11 @@ class PurchaseController extends Controller
             );
     }
 
-    public function getPurchasedItem($id)
+    public function getPurchasedItem($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MainBundle:Product')->find($id);
+        $entity = $em->getRepository('MainBundle:Product')->findOneBy(array('slug' => $slug));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Product entity.');
@@ -66,7 +66,7 @@ class PurchaseController extends Controller
         $em->persist($order);
         $em->flush();
 
-        return new Response('Created order id '.$order->getId());
+        return new Response('Created order Id '.$order->getId());
     }
 
 }

@@ -4,9 +4,10 @@ namespace Yoda\UserBundle\Entity;
 
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Doctrine\ORM\Mapping as ORM;
 use Serializable;
+use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Orders
@@ -39,17 +40,23 @@ class Orders
 
     /**
      * @var \DateTime
-     *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="dateOrdered", type="datetime", nullable=true)
      */
     private $dateOrdered;
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="datePayed", type="datetime", nullable=true)
      */
     private $datePayed;
+
+    /**
+     * @var \DateTime
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="dateUpdated", type="datetime", nullable=true)
+     */
+    private $dateUpdated;
 
     /**
      * @var \DateTime
@@ -121,6 +128,29 @@ class Orders
     public function getDateOrdered()
     {
         return $this->dateOrdered;
+    }
+
+        /**
+     * Set dateUpdated
+     *
+     * @param \DateTime $dateUpdated
+     * @return Orders
+     */
+    public function setDateUpdated($dateUpdated)
+    {
+        $this->dateUpdated = $dateUpdated;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateUpdated
+     *
+     * @return \DateTime 
+     */
+    public function getDateUpdated()
+    {
+        return $this->dateUpdated;
     }
 
     /**

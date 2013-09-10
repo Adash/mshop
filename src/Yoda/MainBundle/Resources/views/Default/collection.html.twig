@@ -28,11 +28,11 @@
       <div class="thumbnail">
         <div >
             <p>
-              <a href="{{ path('product_show', { 'id': entity.id }) }}">
+              <a href="{{ path('product_show', { 'slug': entity.slug }) }}">
               <img src="/bundles/main/img/{{ entity.path }}" class="img-responsive" alt="Responsive image"/>&raquo;</a>
             </p> 
         <h3 class="text-muted">{{ entity.name }}</h3>
-        <p><a class="btn btn-default" href="{{ path('product_show', { 'id': entity.id }) }}">View details &raquo;</a></p>
+        <p><a class="btn btn-default" href="{{ path('product_show', { 'slug': entity.slug }) }}">View details &raquo;</a></p>
         </div>
       </div>
     </div>

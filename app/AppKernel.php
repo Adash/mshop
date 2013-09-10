@@ -14,15 +14,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            //Sylius cart Bundle
-            //new FOS\RestBundle\FOSRestBundle(),
-            //new JMS\SerializerBundle\JMSSerializerBundle($this),
-            //new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
-            //new Sylius\Bundle\CartBundle\SyliusCartBundle(),
-            //endOf Sylius cart Bundle
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
            // new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Yoda\MainBundle\MainBundle(),
             new Yoda\UserBundle\UserBundle(),
         );

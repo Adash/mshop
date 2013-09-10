@@ -3,7 +3,7 @@ product:
     defaults: { _controller: "MainBundle:Product:product" }
 
 product_show:
-    pattern:  /{id}/show
+    pattern:  /{slug}/show
     defaults: { _controller: "MainBundle:Product:show" }
 
 product_new:
@@ -16,15 +16,15 @@ product_create:
     requirements: { _method: post }
 
 product_edit:
-    pattern:  /{id}/edit
+    pattern:  /{slug}/edit
     defaults: { _controller: "MainBundle:Product:edit" }
 
 product_update:
-    pattern:  /{id}/update
+    pattern:  /{slug}/update
     defaults: { _controller: "MainBundle:Product:update" }
     requirements: { _method: post|put }
 
 product_delete:
-    pattern:  /{id}/delete
+    pattern:  /{slug}/delete
     defaults: { _controller: "MainBundle:Product:delete" }
     requirements: { _method: post|delete }

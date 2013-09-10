@@ -22,7 +22,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('product_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('product_show', { 'slug': entity.slug }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.mainMaterial }}</td>
                 <td>{{ entity.guruBeadMaterial }}</td>
@@ -35,10 +35,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('product_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('product_show', { 'slug': entity.slug }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('product_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('product_edit', { 'slug': entity.slug }) }}">edit</a>
                     </li>
                 </ul>
                 </td>

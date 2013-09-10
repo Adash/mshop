@@ -8,10 +8,11 @@
             <tr>
                 <th>Id</th>
                 <th>Buyer</th>
-                <th>Itemname</th>
-                <th>Dateordered</th>
-                <th>Datepayed</th>
-                <th>Datedispatched</th>
+                <th>Item name</th>
+                <th>Date ordered</th>
+                <th>Date updated</th>
+                <th>Date payed</th>
+                <th>Date dispatched</th>
                 <th>Address</th>
                 <th>Actions</th>
             </tr>
@@ -22,9 +23,10 @@
                 <td><a href="{{ path('orders_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.buyer.name }} {{ entity.buyer.surname }}</td>
                 <td>{{ entity.item.name }}</td>
-                <td>{% if entity.dateOrdered %}{{ entity.dateOrdered|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.datePayed %}{{ entity.datePayed|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.dateDispatched %}{{ entity.dateDispatched|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.dateOrdered %}{{ entity.dateOrdered|date('Y-m-d H:i') }}{% endif %}</td>
+                <td>{% if entity.dateUpdated %}{{ entity.dateUpdated|date('Y-m-d H:i') }}{% endif %}</td>
+                <td>{% if entity.datePayed %}{{ entity.datePayed|date('Y-m-d H:i') }}{% endif %}</td>
+                <td>{% if entity.dateDispatched %}{{ entity.dateDispatched|date('Y-m-d H:i:') }}{% endif %}</td>
                 <td>{{ entity.address }}</td>
                 <td>
                 <ul>

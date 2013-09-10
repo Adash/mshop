@@ -5,6 +5,7 @@ namespace Yoda\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Product
@@ -27,7 +28,7 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", unique=true, length=255)
      */
     private $name;
 
@@ -120,6 +121,12 @@ class Product
     public $fileB; 
 
     private $temp;
+
+    /**
+     * @Gedmo\Slug(fields={"name"}, updatable=false )
+     * @ORM\Column(length=255, unique=true)
+     */
+    private $slug;
 
 
     /**
@@ -340,6 +347,16 @@ class Product
         return $this->price;
     }
 
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+     
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 
     /**
      * Get path
