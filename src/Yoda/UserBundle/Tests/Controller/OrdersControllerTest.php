@@ -6,6 +6,17 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class OrdersControllerTest extends WebTestCase
 {
+
+    public function testOrders()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/orders');
+
+        $this->assertEquals(301, $client->getResponse()->getStatusCode());
+        //$this->assertTrue($crawler->filter('html:contains("See whole collection")')->count() > 0);
+    }
+
     /*
     public function testCompleteScenario()
     {
@@ -52,4 +63,5 @@ class OrdersControllerTest extends WebTestCase
     }
 
     */
+
 }

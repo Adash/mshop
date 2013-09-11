@@ -6,6 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ProductControllerTest extends WebTestCase
 {
+
+    public function testProduct()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/product');
+
+        $this->assertEquals(301, $client->getResponse()->getStatusCode());
+        //$this->assertTrue($crawler->filter('html:contains("See whole collection")')->count() > 0);
+    }
     /*
     public function testCompleteScenario()
     {
