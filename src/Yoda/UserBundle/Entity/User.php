@@ -34,7 +34,7 @@ class User implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", unique=true, length=255)
-     * @Assert\NotBlank(message="please find made up some fancy username for your account :)"), max=20, maxMessage="Wooaa! Cound you think of something shorter please :)")
+     * @Assert\NotBlank(message="please make up some fancy username for your account :)"), max=20, maxMessage="Wooaa! Cound you think of something shorter please :)")
      * @Assert\Length(min=3, minMessage="Enter something longer :)", max=20, maxMessage="Wooaa! Cound you think of something shorter please :)")
      */
     private $username;
