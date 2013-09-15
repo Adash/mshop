@@ -26,8 +26,8 @@ class RegisterControllerTest extends WebTestCase
         //$form['user_register[username]'] = 'user5';
         //$form['user_register[email]'] = 'user5@user.com';
         //$form['user_register[plainPassword][first]'] = 'P3ssword';
-        //$form['user_register[plainPassword][second]'] = 'P3ssword';
-        ￼
+        //$form['user_register[plainPassword][second]'] = 'P3ssword';        ￼
+
         //$client->submit($form);
 
     }
