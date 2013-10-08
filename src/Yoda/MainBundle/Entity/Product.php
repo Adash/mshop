@@ -78,7 +78,7 @@ class Product
     /**
      * @var boolean
      *
-     * @ORM\Column(name="inStock", type="boolean")
+     * @ORM\Column(name="inStock", type="boolean", nullable=true)
      */
     private $inStock;
 
