@@ -46,7 +46,6 @@
         <img src="/bundles/main/img/{{ entity.pathA }}" class="img-responsive" alt="Responsive image"/>
     </div>
 
-test {{ entity.id }}  test 
     <div class="col-lg-2"> 
       {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <a class="btn btn-primary btn-sm" href="{{ path('purchase', { 'slug' : entity.slug }) }}">Purchase</a> 

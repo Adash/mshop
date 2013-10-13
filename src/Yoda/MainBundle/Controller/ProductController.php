@@ -98,11 +98,6 @@ class ProductController extends Controller
 
         $user = $this->get('security.context')->getToken()->getUser();
 
-        // ... not sure how to make it work ... freezing
-        //if (is_string($user)) {
-        //    $session->set("productSlug", $slug);
-        //}
-
         $deleteForm = $this->createDeleteForm($slug);
 
         return $this->render('MainBundle:Product:show.html.twig', array(
